@@ -1,0 +1,7 @@
+
+
+![Raphael Volz](https://media.licdn.com/mpr/mpr/shrinknp_200_200/p/2/000/012/3f9/049b816.jpg) Hello !
+
+# Short Bio
+
+**Raphael Volz** is an educator, inventor and entrepreneur. He teaches courses in data science, machine learning, and cloud computing at the [University of Pforzheim](http://www.hs-pforzheim.de) (Germany) where he is a full professor of applied informatics. He also serves as chairman of the board for [Volz Innovation](http://www.volzinnovation.com) GmbH, a consulting firm focused on technology-based product innovation. In 2009, he founded [nogago](http://www.nogago.com/) GmbH, a software company devoted to outdoor navigation using open data and open source apps. He obtained his doctorate *summa cum laude* at the Karlsruhe Institute of Technology (KIT) in 2004 researching [Web Ontology Reasoning with Logic Databases](http://primo.bibliothek.kit.edu/primo_library/libweb/action/display.do?tabs=detailsTab&ct=display&fn=search&doc=KITSRCE0000162004&indx=3&recIds=KITSRCE0000162004&recIdxs=2&elementId=2&renderMode=poppedOut&displayMode=full&frbrVersion=&mode=Basic&vid=KIT&srt=date&tab=kit_evastar&dscnt=0&vl(freeText0)=Raphael%20Volz&dstmp=1462369550931) and previously investigated how ontologies can be acquired from text using machine learning techniques. He loves to code and co-created several open source projects, including the [OWL API](http://owlapi.sourceforge.net/), [KAON](https://sourceforge.net/projects/kaon/) and [SocialGrails](https://www.assembla.com/spaces/social-grail).

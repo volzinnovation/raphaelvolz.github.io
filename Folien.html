@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Prof. Dr. Raphael Volz" />
+  <title>Programmieren für Maschinenbauer</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="libs\reveal.js-3.2.0/css/reveal.css"/>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="libs\reveal.js-3.2.0/css/theme/white.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'libs\reveal.js-3.2.0/css/print/pdf.css' : 'libs\reveal.js-3.2.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="libs\reveal.js-3.2.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section data-audio-src="audio/0.0.ogg">
+    <h1 class="title">Programmieren für Maschinenbauer</h1>
+    <h2 class="author">Prof. Dr. Raphael Volz</h2>
+    <h3 class="date">Hochschule Pforzheim</h3>
+</section>
+
+<section><section id="vorbemerkungen" class="titleslide slide level1"><h1>Vorbemerkungen</h1></section><section id="getting-up-what-i-like-to-do-first-thing" class="slide level2">
+<h1>Getting up | What I like to do first thing</h1>
+<p>This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>When you click the <strong>Knit</strong> button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.</p>
+</section><section id="slide-with-bullets" class="slide level2">
+<h1>Slide with Bullets</h1>
+<ul>
+<li>Bullet 1</li>
+<li>Bullet 2</li>
+<li>Bullet 3</li>
+</ul>
+<aside class="notes">
+<iframe width="420" height="315" src="https://www.youtube.com/embed/cZ34RDn34Ws" frameborder="0" allowfullscreen>
+</iframe>
+</aside>
+</section><section id="slide-with-r-code-and-output" class="slide level2">
+<h1>Slide with R Code and Output</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cars)</code></pre></div>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+</section><section id="slide-with-plot" class="slide level2">
+<h1>Slide with Plot</h1>
+<p><img src="Folien_files/figure-revealjs/unnamed-chunk-4-1.png" title="" alt="" width="768" /></p>
+</section><section id="slide-with-code" class="slide level2">
+<h1>Slide with Code</h1>
+<p>This is the typical form of a main function in C:</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">int</span> main() {
+  <span class="kw">return</span> <span class="dv">0</span>;
+}</code></pre></div>
+<p>Some compilers also allow</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">main() {}</code></pre></div>
+<p>Which is the same as</p>
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c"><span class="dt">void</span> main(<span class="dt">void</span>) {}</code></pre></div>
+</section><section id="slide-with-equation" class="slide level2">
+<h1>Slide with Equation</h1>
+<p><span class="math display">\[ E = m * c^2 \]</span></p>
+</section><section id="festo-libelle" class="slide level2">
+<h1><a href="https://www.youtube.com/embed/nj1yhz5io20">FESTO Libelle</a></h1>
+<iframe width="640" height="480" src="https://www.youtube.com/embed/nj1yhz5io20" frameborder="0" allowfullscreen>
+</iframe>
+</section><section id="quiz" class="slide level2">
+<h1>Quiz</h1>
+<iframe src="https://docs.google.com/a/volzinnovation.com/forms/d/1Vu2Olx_livp3bmpu1KBfNJsgYBDLjC8lb8OFEKETL4c/viewform?embedded=true" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">
+Loading…
+</iframe>
+<aside class="notes">
+Was hat weniger Kalorien ? - Wurst - Karotten
+</aside>
+</section></section>
+<section><section id="noch-ein-kapitel" class="titleslide slide level1"><h1>Noch ein Kapitel</h1></section><section id="slide-with-bullets-1" class="slide level2">
+<h1>Slide with Bullets</h1>
+<ul>
+<li>Bullet 1</li>
+<li>Bullet 2</li>
+<li>Bullet 3</li>
+</ul>
+</section><section id="slide-with-r-code-and-output-1" class="slide level2">
+<h1>Slide with R Code and Output</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(cars)</code></pre></div>
+<pre><code>##      speed           dist       
+##  Min.   : 4.0   Min.   :  2.00  
+##  1st Qu.:12.0   1st Qu.: 26.00  
+##  Median :15.0   Median : 36.00  
+##  Mean   :15.4   Mean   : 42.98  
+##  3rd Qu.:19.0   3rd Qu.: 56.00  
+##  Max.   :25.0   Max.   :120.00</code></pre>
+</section><section id="slide-with-plot-1" class="slide level2">
+<h1>Slide with Plot</h1>
+<p><img src="Folien_files/figure-revealjs/unnamed-chunk-6-1.png" title="" alt="" width="768" /></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="libs\reveal.js-3.2.0/lib/js/head.min.js"></script>
+  <script src="libs\reveal.js-3.2.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Vertical centering of slides
+        center: true,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+		audio: {
+			prefix: 'audio/',   // audio files are stored in the "audio" folder
+			suffix: '.ogg',     // audio files have the ".ogg" ending
+        textToSpeechURL: null,  // the URL to the text to speech converter
+        defaultText: false,     // use slide text as default for the text to speech converter
+        advance: 0,         // advance to next slide after given time in milliseconds after audio has played, use negative value to not advance 
+        autoplay: false,    // automatically start slideshow
+        defaultDuration: 5, // default duration in seconds if no audio is available 
+        playerOpacity: 0.05,    // opacity value of audio player if unfocused
+        startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+    },
+        keyboard: { 
+		    67: function() { Reveal.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+			66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+			46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+			8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+			68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+            82: function() { Recorder.toggleRecording(); }, // press 'r' to start/stop recording
+            90: function() { Recorder.downloadZip(); },     // press 'z' to download zip containing audio files
+            84: function() { Recorder.fetchTTS(); }     // press 't' to fetch TTS audio files
+        },
+		menu: {
+			themes:false,
+			markers:true,
+			openButton:false,
+			openSlideNumber:true,
+			side:'right',
+			},
+		chalkboard: { 
+			src: "notes.js",
+		},
+        // Optional reveal.js plugins
+        dependencies: [
+		
+        { src: 'libs/reveal.js-3.2.0/plugin/chalkboard/chalkboard.js' },
+		{ src: 'libs/reveal.js-3.2.0/plugin/menu/menu.js' },
+        { src: 'libs/reveal.js-3.2.0/plugin/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },              
+        { src: 'libs/reveal.js-3.2.0/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } }
+
+
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

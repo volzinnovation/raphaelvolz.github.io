@@ -1,0 +1,376 @@
+---
+title: "Open Data Ecosystems"
+author: "raphael.volz@hs-pforzheim.de"
+date: "Nov 30, 2017"
+documentclass: book
+papersize: A4
+---
+
+## About Me
+
+![](https://www.hs-pforzheim.de/fileadmin/_processed_/c/c/csm_20161024_Header_Hochschule_mypforzelonaMuench_2aef2596a9.jpg)
+
+- Professor for Applied Computer Science
+- Faculty of Engineering
+- Research Foci: 
+      - Data Science 
+      - Cloud Computing
+
+## Talk Outline
+
+- Introduction
+      - What is open data ?
+      - What is a data ecosystem ?
+      
+- Community-driven open data ecosystems
+      - Wikidata
+      - OpenStreetMap
+  
+- Principles for successful Open Data Ecosystems
+
+# Introduction
+
+## Burger King Ad
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n5lj63-nc5g?rel=0" frameborder="0" allowfullscreen></iframe>
+
+## What is open data?
+
+Open data is data that can be freely used, re-used and redistributed by anyone - subject only, at most, to the requirement to attribute and sharealike.
+
+*Source: <http://opendefinition.org/>*
+
+## What is a data ecosystem?
+
+A community of interacting organizations and individuals that produce, use and reuse a set of data. The dataset is the keystone around which applications and services provide value and thereby become part of the data ecosystem.
+
+Ecosystem members can have various roles. Common roles are contributor, supplier, aggregator, enabler, enricher, developer as well as the common user.
+
+*Source: Own definition*
+
+## High-level view
+
+![*Source: [WHO eHealth](http://www.who.int/entity/ehealth/resources/ecosystem.pdf?ua=1)*](who-health-ecosystem.png)
+
+<!-- ## Technical sketch of a data ecosystem -->
+
+<!-- ![*Source: [CC-BY-SA 2.0 Rufus Pollock, 2011](https://blog.okfn.org/2011/03/31/building-the-open-data-ecosystem/)*](ecosystem-pollock.jpg) -->
+
+# Community-Driven Open Data Ecosystems
+
+## Wikidata
+
+## Wikipedia Infoboxes
+
+![Source: [Karl Benz on Wikipedia](https://en.wikipedia.org/wiki/Karl_Benz)](wikipedia-karlbenz.png)
+
+## Wikidata Purpose
+
+- Centralize the facts from Wikipedia info boxes
+- For reuse across 300 Wikipedia languages 
+- e.g. 78 articles about Zika had different infoboxes
+- For querying and use by third party apps
+- Improve interwiki links
+
+## Wikidata properties
+
+- a knowledge graph based on items
+- free and open
+- collaborative
+- multilingual
+- manually curated ( unlike DBpedia )
+
+## Knowledge graph
+
+[People filmed with Jim Carry](https://angryloki.github.io/wikidata-graph-builder/?property=P161&item=Q40504&mode=undirected&iterations=2)
+
+![Source: [Wikidata Graph Builder](https://angryloki.github.io/wikidata-graph-builder/)](wikidata-graph.png)
+
+## Items have properties
+
+[Karl Benz](https://tools.wmflabs.org/reasonator/?&q=40224)
+
+![Source: [Reasonator](https://tools.wmflabs.org/reasonator/)](wikidata-karlbenz.png)
+
+
+## Wikidata data model
+
+![Source: [Wikidata Data Model Primer](https://www.mediawiki.org/wiki/Wikibase/DataModel/Primer)](https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Wikidata_statement.svg/600px-Wikidata_statement.svg.png)
+
+<!-- ## Wikidata bulk downloads -->
+
+<!-- Wikidata offers copies of its database -->
+
+<!-- - [JSON format](https://dumps.wikimedia.org/wikidatawiki/entities/) -->
+<!-- - [XML format](http://dumps.wikimedia.org/wikidatawiki/) -->
+<!-- - [RDF format](https://dumps.wikimedia.org/wikidatawiki/entities/) in Turtle serialization -->
+
+<!-- Can load those dumps with [Wikidata Toolkit](https://www.mediawiki.org/wiki/Wikidata_Toolkit) -->
+
+## Wikidata size ~~June~~ November 2017
+
+- ~~26.3~~ 38.6 Mio. items
+- ~~150~~ 326 Mio. statements about items
+- ~~500~~ 597 Mio. edits have been made since launch
+- Currently >~~17~~ 18.6  Tsd. active users
+- [Observe growth in detail statistics](https://www.wikidata.org/wiki/Wikidata:Statistics)
+
+## Wikidata ecosystem
+
+- Various companies  using the data
+- Example Google:
+      - Directly answers search requests, e.g. [How high is the Eiffel tower?](https://www.google.de/search?q=how+high+is+the+eiffel+tower&oq=how+high+is+the+eiffel+tower)
+      - Powers info boxes right next to search results
+      - Powers Google Home and Assistant Questions
+      - Donated Freebase data to Wikidata
+- [Growing number of Applications and Services by third party developers ](https://www.wikidata.org/wiki/Wikidata:Tools/External_tools)
+
+## Wikidata Query Service
+
+What are the 10 largest cities with a female mayor ?
+
+[See Result.](https://query.wikidata.org/embed.html#%23Largest%20cities%20with%20female%20mayor%0ASELECT%20DISTINCT%20%20%3FcityLabel%20%3Fpopulation%20%3FmayorLabel%20%0AWHERE%20%0A%7B%0A%09%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%20%20%23%20find%20instances%20of%20subclasses%20of%20city%0A%09%3Fcity%20p%3AP6%20%3Fstatement%20.%20%20%20%20%20%20%20%20%20%20%20%20%23%20with%20a%20P6%20%28head%20of%20goverment%29%20statement%0A%09%3Fstatement%20ps%3AP6%20%3Fmayor%20.%20%20%20%20%20%20%20%20%20%20%20%23%20...%20that%20has%20the%20value%20%3Fmayor%0A%09%3Fmayor%20wdt%3AP21%20wd%3AQ6581072%20.%20%20%20%20%20%20%20%23%20...%20where%20the%20%3Fmayor%20has%20P21%20%28sex%20or%20gender%29%20female%0A%09FILTER%20NOT%20EXISTS%20%7B%20%3Fstatement%20pq%3AP582%20%3Fx%20%7D%20%20%23%20...%20but%20the%20statement%20has%20no%20P582%20%28end%20date%29%20qualifier%0A%09%20%0A%09%23%20Now%20select%20the%20population%20value%20of%20the%20%3Fcity%0A%09%23%20%28wdt%3A%20properties%20use%20only%20statements%20of%20%22preferred%22%20rank%20if%20any%2C%20usually%20meaning%20%22current%20population%22%29%0A%09%3Fcity%20wdt%3AP1082%20%3Fpopulation%20.%0A%09%23%20Optionally%2C%20find%20English%20labels%20for%20city%20and%20mayor%3A%0A%09SERVICE%20wikibase%3Alabel%20%7B%0A%09%09bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%20.%0A%09%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fpopulation%29%0ALIMIT%2010) [Modify Query.](https://query.wikidata.org/#%23Largest%20cities%20with%20female%20mayor%0ASELECT%20DISTINCT%20%20%3FcityLabel%20%3Fpopulation%20%3FmayorLabel%20%0AWHERE%20%0A%7B%0A%09%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%20%20%23%20find%20instances%20of%20subclasses%20of%20city%0A%09%3Fcity%20p%3AP6%20%3Fstatement%20.%20%20%20%20%20%20%20%20%20%20%20%20%23%20with%20a%20P6%20%28head%20of%20goverment%29%20statement%0A%09%3Fstatement%20ps%3AP6%20%3Fmayor%20.%20%20%20%20%20%20%20%20%20%20%20%23%20...%20that%20has%20the%20value%20%3Fmayor%0A%09%3Fmayor%20wdt%3AP21%20wd%3AQ6581072%20.%20%20%20%20%20%20%20%23%20...%20where%20the%20%3Fmayor%20has%20P21%20%28sex%20or%20gender%29%20female%0A%09FILTER%20NOT%20EXISTS%20%7B%20%3Fstatement%20pq%3AP582%20%3Fx%20%7D%20%20%23%20...%20but%20the%20statement%20has%20no%20P582%20%28end%20date%29%20qualifier%0A%09%20%0A%09%23%20Now%20select%20the%20population%20value%20of%20the%20%3Fcity%0A%09%23%20%28wdt%3A%20properties%20use%20only%20statements%20of%20%22preferred%22%20rank%20if%20any%2C%20usually%20meaning%20%22current%20population%22%29%0A%09%3Fcity%20wdt%3AP1082%20%3Fpopulation%20.%0A%09%23%20Optionally%2C%20find%20English%20labels%20for%20city%20and%20mayor%3A%0A%09SERVICE%20wikibase%3Alabel%20%7B%0A%09%09bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%20.%0A%09%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fpopulation%29%0ALIMIT%2010)
+```
+SELECT DISTINCT  ?cityLabel ?population ?mayorLabel 
+WHERE 
+{
+	?city wdt:P31/wdt:P279* wd:Q515 .  # find instances of subclasses of city
+	?city p:P6 ?statement .            # with a P6 (head of goverment) statement
+	?statement ps:P6 ?mayor .           # ... that has the value ?mayor
+	?mayor wdt:P21 wd:Q6581072 .       # ... where the ?mayor has P21 (sex or gender) female
+	FILTER NOT EXISTS { ?statement pq:P582 ?x }  # ... but the statement has no P582 (end date) qualifier
+	 
+	# Now select the population value of the ?city
+	# (wdt: properties use only statements of "preferred" rank if any, usually meaning "current population")
+	?city wdt:P1082 ?population .
+	# Optionally, find English labels for city and mayor:
+	SERVICE wikibase:label {
+		bd:serviceParam wikibase:language "en" .
+	}
+}
+ORDER BY DESC(?population)
+LIMIT 10
+```
+
+## Default Views for Queries
+
+Timeline of space probe launches.
+
+```
+#defaultView:Timeline
+SELECT ?item ?itemLabel ?launchdate (SAMPLE(?image) AS ?image)
+WHERE
+{
+	?item wdt:P31 wd:Q26529 .
+    ?item wdt:P619 ?launchdate .
+	SERVICE wikibase:label { bd:serviceParam wikibase:language "en" }
+    OPTIONAL { ?item wdt:P18 ?image }
+}
+GROUP BY ?item ?itemLabel ?launchdate
+```
+
+[See Result](http://tinyurl.com/hac6nbc)
+
+## Maps of Wikidata
+
+Lighthouses in Norway
+
+<iframe style="width: 80vw; height: 60vh; border: none;" src="https://query.wikidata.org/embed.html#%23defaultView%3AMap%0ASELECT%20DISTINCT%20%3Fitem%20%3FitemLabel%20%3Fcoor%20%3Fimage%0A%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ39715%20.%0A%20%20%3Fitem%20wdt%3AP17%20wd%3AQ20%20.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP625%20%3Fcoor%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3Fimage%20%7D%0A%20%20SERVICE%20wikibase%3Alabel%0A%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22nb%2Cnn%2Cen%2Cfi%22%20.%7D%0A%7D%0AORDER%20BY%20%3FitemLabel" referrerpolicy="origin" sandbox="allow-scripts allow-same-origin allow-popups"></iframe>
+
+
+## OpenStreetMap (OSM)
+
+## OSM Background
+
+- [OpenStreetMap (OSM)](http://www.openstreetmap.org/) was created in July 2004 by Steve Coast (a UCL student)
+- He did not understand why the Ordnance Survey created massive geographical datasets but did not freely distribute them to those who had paid to create them 
+- GeoData only freely available in some countries, e.g. the US and the Netherlands
+
+## OSM Properties
+
+- Collaborative
+      - maintained by individual contributors
+      - Wikipedia principle, everyone can edit and contribute
+- Donated data sets imported in bulk (particularly Eastern Europe)
+- Automated robots cleaning data
+- **Open Data**, free to use (under OdBL license)
+- **Not a map, but a database**
+
+
+## OSM hypergraph
+
+- *Nodes*: basic geographic point. 
+    - Geographic point: latitude & longitude (WGS84)
+    - Point Of Interest (POIs)
+- *Ways*: ordered interconnection of nodes
+    - open ways = linear features (roads, railways...)
+    - closed ways = areas
+- *Relations*: group of any primitive with associated roles
+    - Relate nodes, ways and potentially other relations to each other,
+    - thereby forming complex objects (multipolygons)
+- Nodes, ways, relations are versioned and user attributed
+
+## OSM Elements
+
+Each OSM entity (node, way, relation) has:
+
+- a numeric identifier: OSM ID
+- a set of generic attributes present for every element
+    - uid, user: user id and user name
+    - timestamp: time of the last modification
+    - visible: if false then the element should only be returned by history calls
+    - version: edit version of the object (starts from 1)
+    - changeset: the changeset (group of edits made within a certain time by one user) in which the object was created or updated
+- a set of tags (key-value pairs)
+
+## OSM Tags / Ontology
+
+- key-value pairs
+- e.g. highway=residential
+- use of tags and values is not restricted
+- defines the basic ontology of OSM
+- see [taginfo](https://taginfo.openstreetmap.org/)
+
+<!-- ## Accessing OSM data -->
+<!-- - Convenient browsing through the web site based on a map view -->
+<!-- - Download the dataset -->
+<!--     - Warning: Heavy lifting and time consuming -->
+<!--     - [Import Planet](http://planet.openstreetmap.org/) (gzipped 58 GB into Postgres + PostGIS) -->
+<!--     - After bulk import, process minutely deltas published for the data -->
+<!--     - Use [osmosis tool](http://wiki.openstreetmap.org/wiki/Osmosis) and cron job to automate this -->
+<!-- - **Use data services** available in the data ecosystem -->
+
+<!-- ## Querying OSM with Postgres -->
+
+<!-- Get location of Colombo. -->
+
+<!-- ```sql -->
+<!-- SELECT name, place, ST_XMin(way), ST_YMin(way) -->
+<!-- FROM planet_osm_point WHERE name='Colombo' AND place='city'; -->
+<!-- ``` -->
+
+<!-- Get the road network. -->
+
+<!-- ```sql -->
+<!-- SELECT ST_SimplifyPreserveTopology (way ,5000) , highway -->
+<!-- FROM planet_osm_line -->
+<!-- WHERE highway IN ('motorway ', 'trunk ', 'primary ', 'secondary '); -->
+<!-- ``` -->
+
+## OSM statistics
+
+Metric | July 2016 | June 2017 | Nov 2017
+--- | --- | --- | ---
+Users |	2,867,221 | 3,954,309 |  	4,402,229
+Nodes	| 3,463,959,970 | 3,926,828,147 | 4,197,365,421
+Ways	| 360,469,340 | 416,654,804 | 	454,113,805
+Relations |	4,387,699 | 5,043,226 | 	5,390,806
+GPS traces | 5,280,183,660 | 5,715,425,150 | 5,953,688,363
+
+Top user has contributed 326,511,847 (6%) GPS traces.
+
+[Source](http://www.openstreetmap.org/stats/data_stats.html)
+
+## OSM Open Data Ecosystem
+
+- Many applications using the data
+- Many services based on the data
+- Many (open source) tools for handling the data
+- Primary application areas
+      - Map Rendering (One Dataset, several renderings)
+      - Geo Search (POI, (Reverse) Name Resolution)
+      - Routing
+      - Geographic Database
+      - Data Editors
+      
+## Map Rendering
+
+[Map Compare](http://mc.bbbike.org/mc/)
+
+![[Source: F4 Map](http://demo.f4map.com/#lat=43.2690495&lon=-2.9372125&zoom=17&camera.theta=73.411&camera.phi=-179.228)](osm3d.png)
+
+## Geo Search
+
+[Nominatim](http://nominatim.openstreetmap.org/)
+
+- search for a name or address (forward search) 
+- look up data by its geographic coordinate (reverse search)
+- Each result comes with a link to a details page where you can inspect the data
+- Debug info to investigate how the address of the object has been computed.
+- Available [Open Source](http://wiki.openstreetmap.org/wiki/Nominatim)
+- In Production on main site and available via APIs
+
+## Routing
+
+- [Many (open source) applications and services available](http://wiki.openstreetmap.org/wiki/Routing)
+- My favorite: [Graphhopper](http://www.openstreetmap.org/directions?engine=graphhopper_car&route=6.9350%2C79.8538%3B6.7567%2C81.8046#map=9/6.7778/80.8429)
+    - Including route optimization and distance matrix services
+    - Isochrone (reach calculation)
+    - Matrix API
+    - Route Optimization (Travelling Salesman Problem)
+    - Snap to Road
+    - Open Source (with commercial version and hosting service)
+
+## Data Service - Overpass
+
+Example Query: Chinese Restaurants on the map
+
+```
+node
+  [amenity=restaurant]
+  [cuisine=chinese]
+  ({{bbox}});
+out;
+```
+[Run Overpass Query.](http://overpass-turbo.eu/s/pEo) 
+
+## Overpass Query: Streets on the map
+```
+way({{bbox}})
+  [highway]
+  [name];
+out;
+```
+[Run Overpass Query.](http://overpass-turbo.eu/s/hpD) 
+
+## Case Study WheelMap.org 
+
+![Source: <http://wheelmap.org>](wheelmap-overview.png)
+
+<!-- ## Case Study WheelMap.org -->
+
+![Source: <http://wheelmap.org>](wheelmap-colombo.png)
+
+<!-- ## Case Study WheelMap.org -->
+
+![Source: [OpenStreetMap](http://www.openstreetmap.org/way/263768173#map=19/6.93177/79.84316)](wheelmap-galadari.png)
+
+
+## Conclusion
+
+- Community-driven data ecosystems thriving
+- High and increasing partipation
+- Contribution to data sets at the core of the ecosystem
+- Major issues:
+      - Incompatibility of licenses (ODbl vs. CC)
+      - No global identifiers (linking data sets is still hard), Wikidata providing a basis for bridging ids
+      - New community-driven data ecosystems will probably be domain-focused (winner takes all)
+      
+# Success Factors for Open Data Ecosystems
+
+## Success Factors
+
+- Adopt emerging best practises, see  [[1](http://www.howto.gov/web-content/requirements-and-best-practices/open), [2](http://sunlightfoundation.com/opendataguidelines/), [3](http://www.montgomerycountymd.gov/olo/resources/files/2013-7bestpracticesinopendatainitiatives.pdf), [4](http://www.socrata.com/open-data-field-guide/field-kit-landing-page/), [5](http://opendatahandbook.org/), [6](http://data.worldbank.org/open-government-data-toolkit), [7](http://www.nyc.gov/html/doitt/downloads/pdf/nyc_open_data_tsm.pdf)]
+- Define a priority domain
+- Create **linkable data** with global identifiers (URIs)
+- Allow **extensions** by third party contributions
+- Use **feedback cycles** including versioning
+- **Track progress** with statistics of agreed on metrics
+- **Manage the community** 
+- **Disseminate!**
+
+## Data ecosystems are all about people
+
+![*Source: <https://en.wikipedia.org/wiki/Magnus_Manske>*](magnus-manske-wikipedia.png)
+
+# Thank you for your attention! Questions ?

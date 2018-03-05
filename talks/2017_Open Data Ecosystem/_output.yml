@@ -1,0 +1,25 @@
+pdf_document:
+    toc: true
+    number_sections: true
+    template: raphael.tex
+word_document:
+    fig_width: 5
+    fig_height: 5
+    fig_caption: true
+    toc: true
+revealjs::revealjs_presentation:
+    center: true
+    self_contained: false
+    lib_dir: libs
+    theme: white
+    transition: none
+    css: libs\raphael.css
+    fig_width: 8
+    fig_height: 4
+    fig_caption: true
+    reveal_options:
+        previewLinks: false
+        controls: true
+        progress: true
+        slideNumber: true
+        keyboard: true

@@ -1,0 +1,27 @@
+name: "Raphael Volz"
+output_dir: "."
+navbar:
+  title: "Prof. Dr. Raphael Volz"
+  left:
+    - text: "Person"
+      icon: fa-child
+      href: cv.html
+    - text: "Lehre"
+      icon: fa-graduation-cap
+      href: index.html
+    - text: "Forschung"
+      icon: fa-lightbulb-o
+      href: forscht.html
+    - text: "Projekte"
+      icon: fa-cog
+      href: "http://www.volzinnovation.com"
+    - text: "Apps"
+      icon: fa-code
+      href: "http://www.nogago.com"
+  right:
+    - icon: fa-at
+      href: kontakt.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate

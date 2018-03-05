@@ -1,0 +1,17 @@
+---
+title: "Research"
+---
+
+## Interests
+My current research interests focus on the **integration of symbolic knowledge representation with statistical learning**. I am interested in particular how open data sets such as Wikidata and OpenStreetMap can be integrated with the predictive models obtained with machine learning. I currently also try to bring such integrated models into Internet of Things applications, particularly for Smart Homes and Smart Mobility solutions.
+
+## Publications
+[My publications](https://scholar.google.de/citations?user=Hc4nZ4MAAAAJ&hl=de) are tracked by Google Scholar. My **h-Index** is currently **38**, which means that I have 38 publications with 38 or more citations.
+
+##  Selected Public Talks
+
+* [Open Data Ecosystems (Long version)](./talks/2017_Open%20Data%20Ecosystem/Presentation.html) 
+(Computer Society of Sri Lanka - June 2017)
+
+* [Open Data Ecosystems (Short Version)](./talks/2017_ODE_Short/Presentation.html#/) 
+(Dies Academicus, Hochschule Pforzeim - November 2017)

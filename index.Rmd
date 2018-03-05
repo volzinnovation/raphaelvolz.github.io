@@ -1,0 +1,72 @@
+---
+title: "Lectures"
+---
+
+
+
+## Bachelor 
+
+* [Information Technology 2](https://lms.hs-pforzheim.de/course/view.php?id=822) 
+(Wirtschaftsingenieure im 4. Semester - in English)
+
+* [Data Science](https://lms.hs-pforzheim.de/course/view.php?id=1769) 
+(Wahlpflichtfach Ingenieure im 6. Semester - in English )
+
+* [Software Engineering](https://lms.hs-pforzheim.de/course/view.php?id=2079) 
+(Wahlpflichtfach Ingenieure im 7. Semester)
+
+## Master
+
+* [Cloud Computing](https://lms.hs-pforzheim.de/course/view.php?id=819) (MIS in English)
+
+* [Künstliche Intelligenz](https://lms.hs-pforzheim.de/course/view.php?id=3694) (MMS in German)
+
+
+## Graduate Courses
+
+* [Improving Prediction Models with Open Data](./WebST2016/Presentation/Presentation.html) 
+(International Summer School on Web Science and Technology, Bilbao, Spain, July 2016)
+
+## Past Lectures
+
+* [Business Intelligence](https://lms.hs-pforzheim.de/course/view.php?id=2332) 
+(fka. Information Technology 2 - MBAE)
+
+* [Grundlagen der Programmierung](https://lms.hs-pforzheim.de/course/view.php?id=823) 
+(Maschinenbauer im 3. Semester)
+
+* [Informationstechnologie 2](https://lms.hs-pforzheim.de/course/view.php?id=821) 
+(Wirtschaftsingenieure im 4. Semester)
+
+
+## Course Content 2.0
+
+Goodbye PowerPoint, Goodbye Latex Beamer. I am currently switching to a new presentation style to
+
+- improve the course creation process
+    - write efficiently in text-based markup (MD) and mix-in Latex for equations, Web content, and statistical analyses and charts
+    - avoid loosing time and distraction with layout
+    - fix a consistent layout style
+    - ensure appropriate citation
+- create redundant high-quality outputs to accomodate various learning styles
+     - mobile viewable and embeddable presentation 
+     - printable eBook
+     - editable course notes  
+- incorporate modern means for interacting with students
+     - notes on slides
+     - embedded videos and interactive Web content
+     - direct links to individual slides
+- enable self-study outside the classroom 
+    - embedded Audio and Video with captions
+    - Audio podcast
+    - Video lectures
+- achieve world-wide visibility through search engines
+
+## Sample lecture (in IT2 class)
+
+View the sample lecture 
+- [full screen presentation](IT2/Grammars.html) 
+- [print the script](IT2/Grammars.pdf)  
+- [change the notes in Word](IT2/Grammars.docx).
+
+

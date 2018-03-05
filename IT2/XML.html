@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Prof. Dr. Raphael Volz" />
+  <title>XML and DTD</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="libs\reveal.js-3.2.0/css/reveal.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.cs">
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="libs\reveal.js-3.2.0/css/theme/white.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="libs\raphael.css"/>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'libs\reveal.js-3.2.0/css/print/pdf.css' : 'libs\reveal.js-3.2.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="libs\reveal.js-3.2.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">XML and DTD</h1>
+    <h2 class="author">Prof. Dr. Raphael Volz</h2>
+    <h3 class="date">Hochschule Pforzheim</h3>
+</section>
+
+<section><section id="xml" class="titleslide slide level1"><h1>XML</h1></section><section id="extensible-markup-language" class="slide level2">
+<h1>eXtensible Markup Language</h1>
+<ul>
+<li><a href="https://www.w3.org/XML/">World-Wide Web Consortium (W3C) Standard</a>
+<ul>
+<li>Recommendation since February 1998</li>
+</ul></li>
+<li>Simple, very flexible, text-based data format</li>
+<li>Original purpose: structuring texts
+<ul>
+<li>XHTML web pages are XML documents</li>
+<li>Unlike HTML elements are not predefined</li>
+</ul></li>
+<li>XML is one of the most widely-used formats for sharing structured information today, used for
+<ul>
+<li>data exchange between applications</li>
+<li>storing data (of an application)</li>
+</ul></li>
+<li>omnipresent in enterprise applications</li>
+</ul>
+</section><section id="xml-example" class="slide level2">
+<h1>XML Example</h1>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;author&gt;</span>
+  <span class="kw">&lt;title&gt;</span>Sir<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;lastname&gt;</span>Barrie<span class="kw">&lt;/lastname&gt;</span>
+  <span class="kw">&lt;firstname&gt;</span>James<span class="kw">&lt;/firstname&gt;</span>
+  <span class="kw">&lt;firstname&gt;</span>Matthew<span class="kw">&lt;/firstname&gt;</span>
+  Best known for his book Peter Pan, 
+  or The Boy Who Wouldn&#39;t Grow Up
+<span class="kw">&lt;/author&gt;</span></code></pre></div>
+</section><section id="xml-elements" class="slide level2">
+<h1>XML Elements</h1>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;author&gt;</span>
+  <span class="kw">&lt;title&gt;</span>Sir<span class="kw">&lt;/title&gt;</span>
+  <span class="kw">&lt;lastname&gt;</span>Barrie<span class="kw">&lt;/lastname&gt;</span>
+  <span class="kw">&lt;firstname&gt;</span>James<span class="kw">&lt;/firstname&gt;</span>
+  <span class="kw">&lt;firstname&gt;</span>Matthew<span class="kw">&lt;/firstname&gt;</span>
+  Best known for his book Peter Pan, 
+  or The Boy Who Wouldn&#39;t Grow Up
+<span class="kw">&lt;/author&gt;</span></code></pre></div>
+<ul>
+<li><em>author, title, lastname,</em> and <em>firstname</em> are called <strong>elements</strong></li>
+<li><em>author</em> is called <strong>root</strong> (element)</li>
+<li>Elements can be nested</li>
+<li>An element starts with opening tag, contains content (possibly other elements) and closes with closing tag repeating the same name as in the opening tag</li>
+</ul>
+</section><section id="xml-example-2" class="slide level2">
+<h1>XML Example 2</h1>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml"><span class="kw">&lt;?xml</span> version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;<span class="kw">?&gt;</span>
+<span class="kw">&lt;bookstore&gt;</span>
+  <span class="kw">&lt;book</span><span class="ot"> category=</span><span class="st">&quot;cooking&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>Everyday Italian<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;author&gt;</span>Giada De Laurentiis<span class="kw">&lt;/author&gt;</span>
+    <span class="kw">&lt;year&gt;</span>2005<span class="kw">&lt;/year&gt;</span>
+    <span class="kw">&lt;price&gt;</span>30.00<span class="kw">&lt;/price&gt;</span>
+  <span class="kw">&lt;/book&gt;</span>
+  <span class="kw">&lt;book</span><span class="ot"> category=</span><span class="st">&quot;children&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>Harry Potter<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;author&gt;</span>J K. Rowling<span class="kw">&lt;/author&gt;</span>
+    <span class="kw">&lt;year&gt;</span>2005<span class="kw">&lt;/year&gt;</span>
+    <span class="kw">&lt;price&gt;</span>29.99<span class="kw">&lt;/price&gt;</span>
+  <span class="kw">&lt;/book&gt;</span>
+  <span class="kw">&lt;book</span><span class="ot"> category=</span><span class="st">&quot;web&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;title</span><span class="ot"> lang=</span><span class="st">&quot;en&quot;</span><span class="kw">&gt;</span>Learning XML<span class="kw">&lt;/title&gt;</span>
+    <span class="kw">&lt;author&gt;</span>Erik T. Ray<span class="kw">&lt;/author&gt;</span>
+    <span class="kw">&lt;year&gt;</span>2003<span class="kw">&lt;/year&gt;</span>
+    <span class="kw">&lt;price&gt;</span>39.95<span class="kw">&lt;/price&gt;</span>
+  <span class="kw">&lt;/book&gt;</span>
+<span class="kw">&lt;/bookstore&gt;</span></code></pre></div>
+<figcaption>
+<a href="http://www.w3schools.com/xml/">Source: XML tutorial</a>
+</figcaption>
+</section><section id="xml-attributes" class="slide level2">
+<h1>XML Attributes</h1>
+</section><section id="empty-elements" class="slide level2">
+<h1>Empty elements</h1>
+<p><code>{xml}&lt;firstname/&gt;</code> is the same as <code>{xml}&lt;firstname&gt;&lt;/firstname&gt;</code></p>
+<ul>
+<li>Empty elements do not have content</li>
+<li>Empty elements can have attributes</li>
+<li>Examples from HTML
+<ul>
+<li>&lt;br/&gt; (line break)</li>
+<li>&lt;hr/&gt; (horizontal line)</li>
+<li>&lt;img/&gt; (Image) ## XML example (2) ## Vocabulary (XML)</li>
+</ul></li>
+</ul>
+<p>A vocabulary refers to the collection of all names of elements and attributes in an XML document</p>
+<ul>
+<li>Many Standard vocabularies exist
+<ul>
+<li>for industries</li>
+<li>for specific purposes</li>
+</ul></li>
+<li>Examples
+<ul>
+<li>financial reporting (XRML)</li>
+<li>geographic data (GPX / KML)</li>
+<li>Universal Plug and Play (UPnP)</li>
+<li>vector graphics (SVG)</li>
+<li>XHTML</li>
+<li>…</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="dtd" class="titleslide slide level1"><h1>DTD</h1></section><section id="document-type-definition" class="slide level2">
+<h1>Document Type Definition</h1>
+<div class="sourceCode"><pre class="sourceCode xml"><code class="sourceCode xml">twelve = &quot;1&quot;, &quot;2&quot;;
+non-zero-number = &quot;1&quot; | &quot;2&quot; | &quot;3&quot; | &quot;4&quot; | &quot;5&quot; | &quot;6&quot; | &quot;7&quot; | &quot;8&quot; | &quot;9&quot; ; 
+digit = &quot;0&quot; | non-zero-number ; 
+natural-number = non-zero-number, { Digit } ; 
+integer = &quot;0&quot; | [ &quot;-&quot; ], natural-number ; </code></pre></div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="libs\reveal.js-3.2.0/lib/js/head.min.js"></script>
+  <script src="libs\reveal.js-3.2.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+        audio: {
+			prefix: 'audio/',   // audio files are stored in the "audio" folder
+			suffix: '.ogg',     // audio files have the ".ogg" ending
+            textToSpeechURL: null,  // the URL to the text to speech converter
+            defaultText: false,     // use slide text as default for the text to speech converter
+            advance: 0,         // advance to next slide after given time in milliseconds after audio has played
+            autoplay: false,    // automatically start slideshow
+            defaultDuration: 5, // default duration in seconds if no audio is available 
+            playerOpacity: 0.05,    // opacity value of audio player if unfocused
+            startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+        },
+        keyboard: { 
+		    67: function() { Reveal.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+			66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+			46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+			8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+			68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+            82: function() { Recorder.toggleRecording(); }, // press 'r' to start/stop recording
+            90: function() { Recorder.downloadZip(); },     // press 'z' to download zip containing audio files
+            84: function() { Recorder.fetchTTS(); }     // press 't' to fetch TTS audio files
+        },
+		menu: {
+			themes:false,
+			markers:true,
+			openButton:false,
+			openSlideNumber:true,
+			side:'right',
+			},
+		chalkboard: { 
+			src: "notes.js",
+		},
+        // Raphaels reveal.js plugins
+        dependencies: [
+		
+        { src: 'libs/reveal.js-3.2.0/plugin/chalkboard/chalkboard.js' },
+		{ src: 'libs/reveal.js-3.2.0/plugin/menu/menu.js' },
+        { src: 'libs/reveal.js-3.2.0/plugin/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },              
+        { src: 'libs/reveal.js-3.2.0/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } }
+
+
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>

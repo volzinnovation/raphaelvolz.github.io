@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Raphael Volz (rv@volzinnovation.com)" />
+  <meta name="dcterms.date" content="2017-06-12" />
+  <title>Open Data Ecosystems</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="libs\reveal.js-3.2.0/css/reveal.css"/>
+  <link rel="stylesheet" href="libs\reveal.js-3.2.0/css/font-awesome.min.cs">
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="libs\reveal.js-3.2.0/css/theme/white.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="libs\raphael.css"/>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'libs\reveal.js-3.2.0/css/print/pdf.css' : 'libs\reveal.js-3.2.0/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <!--[if lt IE 9]>
+    <script src="libs\reveal.js-3.2.0/lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Open Data Ecosystems</h1>
+    <h2 class="author">Raphael Volz (<a href="mailto:rv@volzinnovation.com">rv@volzinnovation.com</a>)</h2>
+    <h3 class="date">June 12, 2017</h3>
+</section>
+
+<section id="about-me" class="slide level2">
+<h1>About Me</h1>
+<figure>
+<img src="https://www.hs-pforzheim.de/fileadmin/_processed_/c/c/csm_20161024_Header_Hochschule_mypforzelonaMuench_2aef2596a9.jpg" />
+</figure>
+<ul>
+<li>Professor for Applied Computer Science</li>
+<li>Lectures in Data Science, Cloud Computing</li>
+<li>Founder and Chairman of Volz Innovation GmbH (Consulting Firm specialized on IT Strategy, Data Science and Cloud Computing)</li>
+</ul>
+</section>
+<section id="talk-outline" class="slide level2">
+<h1>Talk Outline</h1>
+<ul>
+<li>Introduction
+<ul>
+<li>What is open data ?</li>
+<li>What is a data ecosystem ?</li>
+</ul></li>
+<li>Government-driven open data ecosystems
+<ul>
+<li>data.gov (US)</li>
+<li>European Data Portal</li>
+</ul></li>
+<li>Community-driven open data ecosystems
+<ul>
+<li>Wikidata</li>
+<li>OpenStreetMap</li>
+</ul></li>
+<li>Principles for successful Open Data Ecosystems</li>
+</ul>
+</section>
+<section><section id="introduction" class="titleslide slide level1"><h1>Introduction</h1></section><section id="burger-king-ad" class="slide level2">
+<h1>Burger King Ad</h1>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/U_O54le4__I?rel=0" frameborder="0" allowfullscreen>
+</iframe>
+</section><section id="what-is-open-data" class="slide level2">
+<h1>What is open data?</h1>
+<p>Open data is data that can be freely used, re-used and redistributed by anyone - subject only, at most, to the requirement to attribute and sharealike.</p>
+<p><em>Source: <a href="http://opendefinition.org/" class="uri">http://opendefinition.org/</a></em></p>
+</section><section id="what-is-a-data-ecosystem" class="slide level2">
+<h1>What is a data ecosystem?</h1>
+<p>A community of interacting organizations and individuals that produce, use and reuse a set of data. The dataset is the keystone around which applications and services provide value and thereby become part of the data ecosystem.</p>
+<p>Ecosystem members can have various roles. Common roles are contributor, supplier, aggregator, enabler, enricher, developer as well as the common user.</p>
+<p><em>Source: Own definition</em></p>
+</section><section id="high-level-view" class="slide level2">
+<h1>High-level view</h1>
+<figure>
+<img src="who-health-ecosystem.png" alt="Source: WHO eHealth" /><figcaption><em>Source: <a href="http://www.who.int/entity/ehealth/resources/ecosystem.pdf?ua=1">WHO eHealth</a></em></figcaption>
+</figure>
+</section><section id="technical-sketch-of-a-data-ecosystem" class="slide level2">
+<h1>Technical sketch of a data ecosystem</h1>
+<figure>
+<img src="ecosystem-pollock.jpg" alt="Source: CC-BY-SA 2.0 Rufus Pollock, 2011" /><figcaption><em>Source: <a href="https://blog.okfn.org/2011/03/31/building-the-open-data-ecosystem/">CC-BY-SA 2.0 Rufus Pollock, 2011</a></em></figcaption>
+</figure>
+</section></section>
+<section><section id="government-driven-open-data-ecosystems" class="titleslide slide level1"><h1>Government-Driven Open Data Ecosystems</h1></section><section id="open-data-principles" class="slide level2">
+<h1>10 open data principles</h1>
+<ul>
+<li>In <strong>October 2007</strong>, 30 open government advocates met in Sebastopol, California to discuss how government could open up government data for public use<br />
+</li>
+<li>Federal and state governments had made some data available to the public, usually inconsistently and incompletely, more and better data was needed.</li>
+<li>Conference led to 8 (later 10) principles for open data</li>
+</ul>
+<p><em>Source: <a href="https://sunlightfoundation.com/policy/documents/ten-open-data-principles/">Sunlight Foundation</a></em></p>
+</section><section id="open-data-principles-1" class="slide level2">
+<h1>10 open data principles</h1>
+<ol type="1">
+<li>Completeness</li>
+<li>Primacy</li>
+<li>Timeliness</li>
+<li>Ease of Access</li>
+<li>Machine readability</li>
+<li>Non-discrimination</li>
+<li>Use of commonly owned standards</li>
+<li>Licensing</li>
+<li>Permanence</li>
+<li>Usage Costs</li>
+</ol>
+<p><em>Source: <a href="https://sunlightfoundation.com/policy/documents/ten-open-data-principles/">Sunlight Foundation</a></em></p>
+</section><section id="data.gov" class="slide level2">
+<h1>data.gov</h1>
+<figure>
+<img src="data.gov.png" alt="Source: https://www.data.gov" /><figcaption>Source: <a href="https://www.data.gov" class="uri">https://www.data.gov</a></figcaption>
+</figure>
+</section><section id="case-study-spotcrime" class="slide level2">
+<h1>Case Study SpotCrime</h1>
+<figure>
+<img src="input/spotcrime.png" alt="Source:SpotCrime.com" /><figcaption>Source:<a href="http://www.spotcrime.com/">SpotCrime.com</a></figcaption>
+</figure>
+</section><section id="open-data-charter" class="slide level2">
+<h1>Open Data Charter</h1>
+<p><strong>5 Principles agreed to at 2013 G8 Summit</strong></p>
+<ol type="1">
+<li>Open Data by default</li>
+<li>Quality and Quantity</li>
+<li>Usable by All</li>
+<li>Releasing data for improved governance</li>
+<li>Releasing data for innovation</li>
+</ol>
+<p><em>Source: <a href="https://www.gov.uk/government/publications/open-data-charter/g8-open-data-charter-and-technical-annex">Open Data Charter</a></em></p>
+</section><section id="european-public-sector-information-psi-directive" class="slide level2">
+<h1>European Public Sector Information (PSI) Directive</h1>
+<ul>
+<li>2003 adopted legislation to foster use of public data in all member states <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2003:345:0090:0096:en:PDF">2003/98/EC</a></li>
+<li>2013 revision <a href="http://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:L:2013:175:0001:0008:EN:PDF">2013/37/EU</a> mainly amended
+<ul>
+<li>open by default principle</li>
+<li>break-away from cost-based charging toward marginal cost-oriented fee with transparent calculation</li>
+<li>inclusion of cultural institutions as public bodies</li>
+</ul></li>
+</ul>
+</section><section id="psi-priority-domains" class="slide level2">
+<h1>5 PSI priority domains</h1>
+<ul>
+<li>geospatial and earth observation data</li>
+<li>environmental data</li>
+<li>transport data</li>
+<li>statistical data</li>
+<li>company data</li>
+</ul>
+</section><section id="european-data-portal" class="slide level2">
+<h1>European Data Portal</h1>
+<figure>
+<img src="europeandataportal.png" alt="Source:European Data Portal" /><figcaption>Source:<a href="https://www.europeandataportal.eu/">European Data Portal</a></figcaption>
+</figure>
+</section><section id="european-open-data-indicators" class="slide level2">
+<h1>European Open Data Indicators</h1>
+<figure>
+<img src="eu-opendata-metrics.png" alt="Source:European Data Portal" /><figcaption>Source:<a href="https://www.europeandataportal.eu/en/dashboard">European Data Portal</a></figcaption>
+</figure>
+</section><section id="european-open-data-indicators-1" class="slide level2">
+<h1>European Open Data Indicators</h1>
+<figure>
+<img src="eu-opendata-table.png" alt="Source:European Data Portal" /><figcaption>Source:<a href="https://www.europeandataportal.eu/en/dashboard">European Data Portal</a></figcaption>
+</figure>
+</section><section id="european-open-data-dissemination" class="slide level2">
+<h1>European Open Data Dissemination</h1>
+<figure>
+<img src="eu-opendata-dissemination.png" alt="Source:European Data Portal" /><figcaption>Source:<a href="https://www.europeandataportal.eu/en/what-we-do/calendar">European Data Portal</a></figcaption>
+</figure>
+</section><section id="case-study-fuel-prices-in-germany" class="slide level2">
+<h1>Case Study: Fuel Prices in Germany</h1>
+<ul>
+<li>Since Sep 2013 companies operating a public fuel station must report prices to the German anti trust agency in real-time</li>
+<li>Increase price transparency</li>
+<li>“Improve the Bundeskartellamts’ possibilities to intervene in the case of illegal predatory strategies and other forms of market power abuse”</li>
+<li>Open Data published on a portal run by Ministry of Transport (MDM Portal)</li>
+<li>Data basis for (many) fuel-price apps</li>
+</ul>
+</section><section id="case-study-fuel-prices-data-set" class="slide level2">
+<h1>Case Study: Fuel Prices Data Set</h1>
+<ul>
+<li>3 fuel types (E5,E10,Diesel)</li>
+<li>14.957 fuel stations</li>
+<li>30.231.752 price changes in one year( Jul 14- Jun 15)</li>
+<li>82.827 price changes per day</li>
+<li>5,6 price changes per station / day</li>
+<li>Amount of price changes increasing in 15/16 and 16/17</li>
+</ul>
+</section><section id="case-study-fuel-prices-analysis" class="slide level2">
+<h1>Case Study: Fuel Prices Analysis</h1>
+<figure>
+<img src="fuelanalysis.png" />
+</figure>
+</section><section id="conclusion" class="slide level2">
+<h1>Conclusion</h1>
+<ul>
+<li><strong>Open Data a policy</strong> in all G8 countries and EU member states</li>
+<li>Initiatives under way and make measurable progress</li>
+<li>Great economic and societal value can be shown already with many data sets</li>
+<li>Major issues:
+<ul>
+<li>Hard to link data (no global record identifiers)</li>
+<li>Community-building and dissemination</li>
+<li>Contribution to data mostly impossible (data published and used “one way street”)</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="community-driven-open-data-ecosystems" class="titleslide slide level1"><h1>Community-Driven Open Data Ecosystems</h1></section><section id="wikidata" class="slide level2">
+<h1>Wikidata</h1>
+</section><section id="wikipedia-infoboxes" class="slide level2">
+<h1>Wikipedia Infoboxes</h1>
+<figure>
+<img src="wikipedia-karlbenz.png" alt="Source: Karl Benz on Wikipedia" /><figcaption>Source: <a href="https://en.wikipedia.org/wiki/Karl_Benz">Karl Benz on Wikipedia</a></figcaption>
+</figure>
+</section><section id="wikidata-purpose" class="slide level2">
+<h1>Wikidata Purpose</h1>
+<ul>
+<li>Centralize the facts from Wikipedia info boxes</li>
+<li>For reuse across 300 Wikipedia languages</li>
+<li>e.g. 78 articles about Zika had different infoboxes</li>
+<li>For querying and use by third party apps</li>
+<li>Improve interwiki links</li>
+</ul>
+</section><section id="wikidata-properties" class="slide level2">
+<h1>Wikidata properties</h1>
+<ul>
+<li>a knowledge graph based on items</li>
+<li>free and open</li>
+<li>collaborative</li>
+<li>multilingual</li>
+<li>manually curated ( unlike DBpedia )</li>
+</ul>
+</section><section id="knowledge-graph" class="slide level2">
+<h1>Knowledge graph</h1>
+<p><a href="https://angryloki.github.io/wikidata-graph-builder/?property=P161&amp;item=Q40504&amp;mode=undirected&amp;iterations=2">People filmed with Jim Carry</a></p>
+<figure>
+<img src="wikidata-graph.png" alt="Source: Wikidata Graph Builder" /><figcaption>Source: <a href="https://angryloki.github.io/wikidata-graph-builder/">Wikidata Graph Builder</a></figcaption>
+</figure>
+</section><section id="items-have-properties" class="slide level2">
+<h1>Items have properties</h1>
+<p><a href="https://tools.wmflabs.org/reasonator/?&amp;q=40224">Karl Benz</a></p>
+<figure>
+<img src="wikidata-karlbenz.png" alt="Source: Reasonator" /><figcaption>Source: <a href="https://tools.wmflabs.org/reasonator/">Reasonator</a></figcaption>
+</figure>
+</section><section id="wikidata-data-model" class="slide level2">
+<h1>Wikidata data model</h1>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Wikidata_statement.svg/600px-Wikidata_statement.svg.png" alt="Source: Wikidata Data Model Primer" /><figcaption>Source: <a href="https://www.mediawiki.org/wiki/Wikibase/DataModel/Primer">Wikidata Data Model Primer</a></figcaption>
+</figure>
+</section><section id="wikidata-bulk-downloads" class="slide level2">
+<h1>Wikidata bulk downloads</h1>
+<p>Wikidata offers copies of its database</p>
+<ul>
+<li><a href="https://dumps.wikimedia.org/wikidatawiki/entities/">JSON format</a></li>
+<li><a href="http://dumps.wikimedia.org/wikidatawiki/">XML format</a></li>
+<li><a href="https://dumps.wikimedia.org/wikidatawiki/entities/">RDF format</a> in Turtle serialization</li>
+</ul>
+<p>Can load those dumps with <a href="https://www.mediawiki.org/wiki/Wikidata_Toolkit">Wikidata Toolkit</a></p>
+</section><section id="wikidata-size" class="slide level2">
+<h1>Wikidata size</h1>
+<ul>
+<li>26.3 Mio. items</li>
+<li>150 Mio. statements about items</li>
+<li>500 Mio. edits have been made since launch</li>
+<li>Currently &gt;17 Tsd. active users</li>
+<li><a href="https://www.wikidata.org/wiki/Wikidata:Statistics">Detail statistics are available</a></li>
+</ul>
+</section><section id="wikidata-ecosystem" class="slide level2">
+<h1>Wikidata ecosystem</h1>
+<ul>
+<li>Various companies such as Google using the data
+<ul>
+<li>to directly answer search requests</li>
+<li>to power info boxes in search results</li>
+<li>Google donated its own data set Freebase to Wikidata</li>
+</ul></li>
+<li><a href="https://www.wikidata.org/wiki/Wikidata:Tools/External_tools">Growing number of Applications and Services by third party developers</a></li>
+</ul>
+</section><section id="wikidata-query-service" class="slide level2">
+<h1>Wikidata Query service</h1>
+<p>What are the 10 largest cities with a female mayor ?</p>
+<p><a href="https://query.wikidata.org/embed.html#%23Largest%20cities%20with%20female%20mayor%0ASELECT%20DISTINCT%20%20%3FcityLabel%20%3Fpopulation%20%3FmayorLabel%20%0AWHERE%20%0A%7B%0A%09%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%20%20%23%20find%20instances%20of%20subclasses%20of%20city%0A%09%3Fcity%20p%3AP6%20%3Fstatement%20.%20%20%20%20%20%20%20%20%20%20%20%20%23%20with%20a%20P6%20%28head%20of%20goverment%29%20statement%0A%09%3Fstatement%20ps%3AP6%20%3Fmayor%20.%20%20%20%20%20%20%20%20%20%20%20%23%20...%20that%20has%20the%20value%20%3Fmayor%0A%09%3Fmayor%20wdt%3AP21%20wd%3AQ6581072%20.%20%20%20%20%20%20%20%23%20...%20where%20the%20%3Fmayor%20has%20P21%20%28sex%20or%20gender%29%20female%0A%09FILTER%20NOT%20EXISTS%20%7B%20%3Fstatement%20pq%3AP582%20%3Fx%20%7D%20%20%23%20...%20but%20the%20statement%20has%20no%20P582%20%28end%20date%29%20qualifier%0A%09%20%0A%09%23%20Now%20select%20the%20population%20value%20of%20the%20%3Fcity%0A%09%23%20%28wdt%3A%20properties%20use%20only%20statements%20of%20%22preferred%22%20rank%20if%20any%2C%20usually%20meaning%20%22current%20population%22%29%0A%09%3Fcity%20wdt%3AP1082%20%3Fpopulation%20.%0A%09%23%20Optionally%2C%20find%20English%20labels%20for%20city%20and%20mayor%3A%0A%09SERVICE%20wikibase%3Alabel%20%7B%0A%09%09bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%20.%0A%09%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fpopulation%29%0ALIMIT%2010">See Result.</a> <a href="https://query.wikidata.org/#%23Largest%20cities%20with%20female%20mayor%0ASELECT%20DISTINCT%20%20%3FcityLabel%20%3Fpopulation%20%3FmayorLabel%20%0AWHERE%20%0A%7B%0A%09%3Fcity%20wdt%3AP31%2Fwdt%3AP279%2a%20wd%3AQ515%20.%20%20%23%20find%20instances%20of%20subclasses%20of%20city%0A%09%3Fcity%20p%3AP6%20%3Fstatement%20.%20%20%20%20%20%20%20%20%20%20%20%20%23%20with%20a%20P6%20%28head%20of%20goverment%29%20statement%0A%09%3Fstatement%20ps%3AP6%20%3Fmayor%20.%20%20%20%20%20%20%20%20%20%20%20%23%20...%20that%20has%20the%20value%20%3Fmayor%0A%09%3Fmayor%20wdt%3AP21%20wd%3AQ6581072%20.%20%20%20%20%20%20%20%23%20...%20where%20the%20%3Fmayor%20has%20P21%20%28sex%20or%20gender%29%20female%0A%09FILTER%20NOT%20EXISTS%20%7B%20%3Fstatement%20pq%3AP582%20%3Fx%20%7D%20%20%23%20...%20but%20the%20statement%20has%20no%20P582%20%28end%20date%29%20qualifier%0A%09%20%0A%09%23%20Now%20select%20the%20population%20value%20of%20the%20%3Fcity%0A%09%23%20%28wdt%3A%20properties%20use%20only%20statements%20of%20%22preferred%22%20rank%20if%20any%2C%20usually%20meaning%20%22current%20population%22%29%0A%09%3Fcity%20wdt%3AP1082%20%3Fpopulation%20.%0A%09%23%20Optionally%2C%20find%20English%20labels%20for%20city%20and%20mayor%3A%0A%09SERVICE%20wikibase%3Alabel%20%7B%0A%09%09bd%3AserviceParam%20wikibase%3Alanguage%20%22en%22%20.%0A%09%7D%0A%7D%0AORDER%20BY%20DESC%28%3Fpopulation%29%0ALIMIT%2010">Modify Query.</a></p>
+<pre><code>SELECT DISTINCT  ?cityLabel ?population ?mayorLabel 
+WHERE 
+{
+    ?city wdt:P31/wdt:P279* wd:Q515 .  # find instances of subclasses of city
+    ?city p:P6 ?statement .            # with a P6 (head of goverment) statement
+    ?statement ps:P6 ?mayor .           # ... that has the value ?mayor
+    ?mayor wdt:P21 wd:Q6581072 .       # ... where the ?mayor has P21 (sex or gender) female
+    FILTER NOT EXISTS { ?statement pq:P582 ?x }  # ... but the statement has no P582 (end date) qualifier
+     
+    # Now select the population value of the ?city
+    # (wdt: properties use only statements of &quot;preferred&quot; rank if any, usually meaning &quot;current population&quot;)
+    ?city wdt:P1082 ?population .
+    # Optionally, find English labels for city and mayor:
+    SERVICE wikibase:label {
+        bd:serviceParam wikibase:language &quot;en&quot; .
+    }
+}
+ORDER BY DESC(?population)
+LIMIT 10</code></pre>
+</section><section id="wikidata-query-service-1" class="slide level2">
+<h1>Wikidata Query Service</h1>
+<p>List of space probes with pictures.</p>
+<pre><code>SELECT ?link ?date ?picture 
+ WHERE {
+   ?link wdt:P31 wd:Q26529 ;
+                      wdt:P18 ?picture ;
+                      wdt:P619 ?date .
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language &quot;fr,en&quot; .
+   }
+ }
+ORDER BY ?date
+LIMIT 100</code></pre>
+<p><a href="https://query.wikidata.org/#SELECT%20%3Flink%20%3Fdate%20%3Fpicture%20%0A%20WHERE%20%7B%0A%20%20%20%3Flink%20wdt%3AP31%20wd%3AQ26529%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP18%20%3Fpicture%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20wdt%3AP619%20%3Fdate%20.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22fr%2Cen%22%20.%0A%20%20%20%7D%0A%20%7D%0AORDER%20BY%20%3Fdate%0ALIMIT%20100">See Result</a></p>
+</section><section id="wikidata-query-service-2" class="slide level2">
+<h1>Wikidata Query Service</h1>
+<p>Map of Lighthouses in Norway</p>
+<pre><code>#defaultView:Map
+SELECT DISTINCT ?item ?itemLabel ?coor ?image
+{
+  ?item wdt:P31 wd:Q39715 .
+  ?item wdt:P17 wd:Q20 .
+  OPTIONAL { ?item wdt:P625 ?coor }
+  OPTIONAL { ?item wdt:P18 ?image }
+  SERVICE wikibase:label
+          {
+    bd:serviceParam wikibase:language &quot;nb,nn,en,fi&quot; .}
+}
+ORDER BY ?itemLabel</code></pre>
+<p><a href="https://query.wikidata.org/#%23defaultView%3AMap%0ASELECT%20DISTINCT%20%3Fitem%20%3FitemLabel%20%3Fcoor%20%3Fimage%0A%7B%0A%20%20%3Fitem%20wdt%3AP31%20wd%3AQ39715%20.%0A%20%20%3Fitem%20wdt%3AP17%20wd%3AQ20%20.%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP625%20%3Fcoor%20%7D%0A%20%20OPTIONAL%20%7B%20%3Fitem%20wdt%3AP18%20%3Fimage%20%7D%0A%20%20SERVICE%20wikibase%3Alabel%0A%20%20%20%20%20%20%20%20%20%20%7B%0A%20%20%20%20bd%3AserviceParam%20wikibase%3Alanguage%20%22nb%2Cnn%2Cen%2Cfi%22%20.%7D%0A%7D%0AORDER%20BY%20%3FitemLabel">See Result</a></p>
+</section><section id="openstreetmap-osm" class="slide level2">
+<h1>OpenStreetMap (OSM)</h1>
+</section><section id="osm-background" class="slide level2">
+<h1>OSM Background</h1>
+<ul>
+<li><a href="http://www.openstreetmap.org/">OpenStreetMap (OSM)</a> was created in July 2004 by Steve Coast, at the time studying at the University College of London.</li>
+<li>He did not understand why the Ordnance Survey created massive geographical datasets but did not freely distribute them to those who had paid to create them</li>
+<li>GeoData is only freely available from national authorities in the US and the Netherlands</li>
+</ul>
+</section><section id="osm-properties" class="slide level2">
+<h1>OSM Properties</h1>
+<ul>
+<li>Collaborative
+<ul>
+<li>maintained by individual contributors</li>
+<li>Wikipedia principle, everyone can edit and contribute</li>
+</ul></li>
+<li>plus bulk data imports in the past (particularly Eastern Europe)</li>
+<li>plus robots cleaning data</li>
+<li><strong>Open Data</strong>, free to use (under OdBL license)</li>
+<li>Not a map, but a database</li>
+</ul>
+</section><section id="osm-data-structures" class="slide level2">
+<h1>OSM Data structures</h1>
+<ul>
+<li>Elements (data primitives): basic components in OSM from which nodes, ways, relations inherit</li>
+<li><em>Nodes</em>: basic geographic point.
+<ul>
+<li>Geographic point: latitude &amp; longitude (WGS84)</li>
+<li>Point Of Interest (POIs)</li>
+</ul></li>
+<li><em>Ways</em>: ordered interconnection of nodes
+<ul>
+<li>open ways = linear features (roads, railways…)</li>
+<li>closed ways = areas</li>
+</ul></li>
+<li><em>Relations</em>: group of any primitive with associated roles
+<ul>
+<li>Relate nodes, ways and potentially other relations to each other,</li>
+<li>thereby forming complex objects (multipolygons).</li>
+</ul></li>
+</ul>
+</section><section id="osm-elements" class="slide level2">
+<h1>OSM Elements</h1>
+<p>Each OSM entity (node, way, relation) has:</p>
+<ul>
+<li>a numeric identifier: OSM ID</li>
+<li>a set of generic attributes present for every element
+<ul>
+<li>uid, user: user id and user name</li>
+<li>timestamp: time of the last modification</li>
+<li>visible: if false then the element should only be returned by history calls</li>
+<li>version: edit version of the object (starts from 1)</li>
+<li>changeset: the changeset (group of edits made within a certain time by one user) in which the object was created or updated</li>
+</ul></li>
+<li>a set of tags (key-value pairs)</li>
+</ul>
+</section><section id="osm-tags-ontology" class="slide level2">
+<h1>OSM Tags / Ontology</h1>
+<ul>
+<li>key-value pairs</li>
+<li>e.g. highway=residential</li>
+<li>use of tags and values is not restricted</li>
+<li>defines the basic ontology of OSM</li>
+<li>see <a href="https://taginfo.openstreetmap.org/">taginfo</a></li>
+</ul>
+</section><section id="accessing-osm-data" class="slide level2">
+<h1>Accessing OSM data</h1>
+<ul>
+<li>Convenient browsing through the web site based on a map view</li>
+<li>Download the dataset
+<ul>
+<li>Warning: Heavy lifting and time consuming</li>
+<li><a href="http://planet.openstreetmap.org/">Import Planet</a> (gzipped 58 GB into Postgres + PostGIS)</li>
+<li>After bulk import, process minutely deltas published for the data</li>
+<li>Use <a href="http://wiki.openstreetmap.org/wiki/Osmosis">osmosis tool</a> and cron job to automate this</li>
+</ul></li>
+<li><strong>Use data services</strong> available in the data ecosystem</li>
+</ul>
+</section><section id="querying-osm-with-postgres" class="slide level2">
+<h1>Querying OSM with Postgres</h1>
+<p>Get location of Colombo.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> name, place, ST_XMin(way), ST_YMin(way)
+<span class="kw">FROM</span> planet_osm_point <span class="kw">WHERE</span> name=<span class="st">&#39;Colombo&#39;</span> <span class="kw">AND</span> place=<span class="st">&#39;city&#39;</span>;</code></pre></div>
+<p>Get the road network.</p>
+<div class="sourceCode"><pre class="sourceCode sql"><code class="sourceCode sql"><span class="kw">SELECT</span> ST_SimplifyPreserveTopology (way ,<span class="dv">5000</span>) , highway
+<span class="kw">FROM</span> planet_osm_line
+<span class="kw">WHERE</span> highway <span class="kw">IN</span> (<span class="st">&#39;motorway &#39;</span>, <span class="st">&#39;trunk &#39;</span>, <span class="st">&#39;primary &#39;</span>, <span class="st">&#39;secondary &#39;</span>);</code></pre></div>
+</section><section id="osm-statistics" class="slide level2">
+<h1>OSM statistics</h1>
+<table>
+<thead>
+<tr class="header">
+<th>Metric</th>
+<th>July 2016</th>
+<th>June 2017</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Users</td>
+<td>2,867,221</td>
+<td>3,954,309</td>
+</tr>
+<tr class="even">
+<td>Nodes</td>
+<td>3,463,959,970</td>
+<td>3,926,828,147</td>
+</tr>
+<tr class="odd">
+<td>Ways</td>
+<td>360,469,340</td>
+<td>416,654,804</td>
+</tr>
+<tr class="even">
+<td>Relations</td>
+<td>4,387,699</td>
+<td>5,043,226</td>
+</tr>
+<tr class="odd">
+<td>GPS traces</td>
+<td>5,280,183,660</td>
+<td>5,715,425,150</td>
+</tr>
+</tbody>
+</table>
+<p>Top user has contributed 326,511,847 (6%) GPS traces.</p>
+<p><a href="http://www.openstreetmap.org/stats/data_stats.html">Source</a></p>
+</section><section id="osm-open-data-ecosystem" class="slide level2">
+<h1>OSM Open Data Ecosystem</h1>
+<ul>
+<li>Many applications using the data</li>
+<li>Many services based on the data</li>
+<li>Many (open source) tools for handling the data</li>
+<li>Primary application areas
+<ul>
+<li>Map Rendering (One Dataset, several renderings)</li>
+<li>Geo Search (POI, (Reverse) Name Resolution)</li>
+<li>Routing</li>
+<li>Geographic Database</li>
+<li>Data Editors</li>
+</ul></li>
+</ul>
+</section><section id="map-rendering" class="slide level2">
+<h1>Map Rendering</h1>
+<p><a href="http://mc.bbbike.org/mc/">Map Compare</a></p>
+<figure>
+<img src="osm3d.png" alt="Source: F4 Map" /><figcaption><a href="http://demo.f4map.com/#lat=43.2690495&amp;lon=-2.9372125&amp;zoom=17&amp;camera.theta=73.411&amp;camera.phi=-179.228">Source: F4 Map</a></figcaption>
+</figure>
+</section><section id="geo-search" class="slide level2">
+<h1>Geo Search</h1>
+<p><a href="http://nominatim.openstreetmap.org/">Nominatim</a></p>
+<ul>
+<li>search for a name or address (forward search)</li>
+<li>look up data by its geographic coordinate (reverse search)</li>
+<li>Each result comes with a link to a details page where you can inspect the data</li>
+<li>Debug info to investigate how the address of the object has been computed.</li>
+<li>Available <a href="http://wiki.openstreetmap.org/wiki/Nominatim">Open Source</a></li>
+<li>In Production on main site and available via APIs</li>
+</ul>
+</section><section id="routing" class="slide level2">
+<h1>Routing</h1>
+<ul>
+<li><a href="http://wiki.openstreetmap.org/wiki/Routing">Many (open source) applications and services available</a></li>
+<li>My favorite: <a href="http://www.openstreetmap.org/directions?engine=graphhopper_car&amp;route=6.9350%2C79.8538%3B6.7567%2C81.8046#map=9/6.7778/80.8429">Graphhopper</a>
+<ul>
+<li>Including route optimization and distance matrix services</li>
+<li>Isochrone (reach calculation)</li>
+<li>Matrix API</li>
+<li>Route Optimization (Travelling Salesman Problem)</li>
+<li>Snap to Road</li>
+<li>Open Source (with commercial version and hosting service)</li>
+</ul></li>
+</ul>
+</section><section id="data-service---overpass" class="slide level2">
+<h1>Data Service - Overpass</h1>
+<p>Example Query: Chinese Restaurants on the map</p>
+<pre><code>node
+  [amenity=restaurant]
+  [cuisine=chinese]
+  ({{bbox}});
+out;</code></pre>
+<p><a href="http://overpass-turbo.eu/s/pEo">Run Overpass Query.</a></p>
+</section><section id="overpass-query-streets-on-the-map" class="slide level2">
+<h1>Overpass Query: Streets on the map</h1>
+<pre><code>way({{bbox}})
+  [highway]
+  [name];
+out;</code></pre>
+<p><a href="http://overpass-turbo.eu/s/hpD">Run Overpass Query.</a></p>
+</section><section id="case-study-wheelmap.org" class="slide level2">
+<h1>Case Study WheelMap.org</h1>
+<figure>
+<img src="wheelmap-overview.png" alt="Source: http://wheelmap.org" /><figcaption>Source: <a href="http://wheelmap.org" class="uri">http://wheelmap.org</a></figcaption>
+</figure>
+</section><section id="case-study-wheelmap.org-1" class="slide level2">
+<h1>Case Study WheelMap.org</h1>
+<figure>
+<img src="wheelmap-colombo.png" alt="Source: http://wheelmap.org" /><figcaption>Source: <a href="http://wheelmap.org" class="uri">http://wheelmap.org</a></figcaption>
+</figure>
+</section><section id="case-study-wheelmap.org-2" class="slide level2">
+<h1>Case Study WheelMap.org</h1>
+<figure>
+<img src="wheelmap-galadari.png" alt="Source: OpenStreetMap" /><figcaption>Source: <a href="http://www.openstreetmap.org/way/263768173#map=19/6.93177/79.84316">OpenStreetMap</a></figcaption>
+</figure>
+</section><section id="conclusion-1" class="slide level2">
+<h1>Conclusion</h1>
+<ul>
+<li>Community-driven data ecosystems thriving</li>
+<li>High and increasing partipation</li>
+<li>Contribution to data sets at the core of the ecosystem</li>
+<li>Major issues:
+<ul>
+<li>Incompatibility of licenses (ODbl vs. CC)</li>
+<li>No global identifiers (linking data sets is still hard), Wikidata providing a basis for bridging ids</li>
+<li>New community-driven data ecosystems will probably be domain-focused (winner takes all)</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="success-factors-for-open-data-ecosystems" class="titleslide slide level1"><h1>Success Factors for Open Data Ecosystems</h1></section><section id="success-factors" class="slide level2">
+<h1>Success Factors</h1>
+<ul>
+<li>Adoption of emerging best practises <a href="http://www.howto.gov/web-content/requirements-and-best-practices/open">1</a> <a href="http://sunlightfoundation.com/opendataguidelines/">2</a> <a href="http://www.montgomerycountymd.gov/olo/resources/files/2013-7bestpracticesinopendatainitiatives.pdf">3</a> <a href="http://www.socrata.com/open-data-field-guide/field-kit-landing-page/">4</a> <a href="http://opendatahandbook.org/">5</a> <a href="http://data.worldbank.org/open-government-data-toolkit">6</a> <a href="http://www.nyc.gov/html/doitt/downloads/pdf/nyc_open_data_tsm.pdf">7</a></li>
+<li>Setting of a priority domain</li>
+<li><strong>Linkable Data</strong> using global identifiers</li>
+<li><strong>Extensible Data</strong> allowing for third party contributions</li>
+<li><strong>Feedback Cycles</strong> including versioning</li>
+<li><strong>Progress tracking</strong> with statistics of agreed on metrics</li>
+<li><strong>Community Management</strong> and <strong>Dissemination</strong></li>
+</ul>
+</section><section id="data-ecosystems-are-all-about-people" class="slide level2">
+<h1>Data ecosystems are all about people</h1>
+<figure>
+<img src="magnus-manske-wikipedia.png" alt="Source: https://en.wikipedia.org/wiki/Magnus_Manske" /><figcaption><em>Source: <a href="https://en.wikipedia.org/wiki/Magnus_Manske" class="uri">https://en.wikipedia.org/wiki/Magnus_Manske</a></em></figcaption>
+</figure>
+</section></section>
+<section><section id="thank-you-for-your-attention-questions" class="titleslide slide level1"><h1>Thank you for your attention! Questions ?</h1></section></section>
+    </div>
+  </div>
+
+  <script src="libs\reveal.js-3.2.0/lib/js/head.min.js"></script>
+  <script src="libs\reveal.js-3.2.0/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Vertical centering of slides
+        center: true,
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+        // Transition style
+        transition: 'none', // none/fade/slide/convex/concave/zoom
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+        audio: {
+			prefix: 'audio/',   // audio files are stored in the "audio" folder
+			suffix: '.ogg',     // audio files have the ".ogg" ending
+            textToSpeechURL: null,  // the URL to the text to speech converter
+            defaultText: false,     // use slide text as default for the text to speech converter
+            advance: 0,         // advance to next slide after given time in milliseconds after audio has played
+            autoplay: false,    // automatically start slideshow
+            defaultDuration: 5, // default duration in seconds if no audio is available 
+            playerOpacity: 0.05,    // opacity value of audio player if unfocused
+            startAtFragment: false, // when moving to a slide, start at the current fragment or at the start of the slide
+        },
+        keyboard: { 
+		    67: function() { Reveal.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+			66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+			46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+			8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+			68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+            82: function() { Recorder.toggleRecording(); }, // press 'r' to start/stop recording
+            90: function() { Recorder.downloadZip(); },     // press 'z' to download zip containing audio files
+            84: function() { Recorder.fetchTTS(); }     // press 't' to fetch TTS audio files
+        },
+		menu: {
+			themes:false,
+			markers:true,
+			openButton:false,
+			openSlideNumber:true,
+			side:'right',
+			},
+		chalkboard: { 
+			src: "notes.js",
+		},
+        // Raphaels reveal.js plugins
+        dependencies: [
+		
+        { src: 'libs/reveal.js-3.2.0/plugin/chalkboard/chalkboard.js' },
+		{ src: 'libs/reveal.js-3.2.0/plugin/menu/menu.js' },
+        { src: 'libs/reveal.js-3.2.0/plugin/audio-slideshow/slideshow-recorder.js', condition: function( ) { return !!document.body.classList; } },              
+        { src: 'libs/reveal.js-3.2.0/plugin/audio-slideshow/audio-slideshow.js', condition: function( ) { return !!document.body.classList; } }
+
+
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
