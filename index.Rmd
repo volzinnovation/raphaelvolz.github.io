@@ -1,4 +1,4 @@
----
+﻿---
 title: "Lectures"
 ---
 
@@ -19,7 +19,7 @@ title: "Lectures"
 
 * [Cloud Computing](https://lms.hs-pforzheim.de/course/view.php?id=819) (MIS in English)
 
-* [K�nstliche Intelligenz](https://lms.hs-pforzheim.de/course/view.php?id=3694) (MMS in German)
+* [Künstliche Intelligenz](https://lms.hs-pforzheim.de/course/view.php?id=3694) (MMS in Germa)
 
 
 ## Graduate Courses
