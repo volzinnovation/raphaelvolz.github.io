@@ -1,0 +1,242 @@
+---
+title: "Linear Regression"
+author: "Raphael Volz"
+date: "19.3.2018"
+documentclass: revealjs::revealjs_presentation
+papersize: A4
+---
+
+# Linear Regression
+
+## What is linear regression ?
+
+**Linear regression**
+- Predicts an *outcome* variable, aka. *dependent* variable
+- Predicts using a set of *input* variables, aka. *independent* variables
+
+## Example: Predicting prices of Bordeaux wines
+- Dependent variable: price (1990/1991 auction)
+- Independent variables:
+      - Age (wines are more expensive, if older)
+      - Weather conditions at harvest, winter, while growing
+- Download [wine.csv](./data/wine.csv) to follow code examples      
+*Source: [Orley Ashenfelter (Princeton)](http://www.wine-economics.org/workingpapers/AAWE_WP04.pdf)*
+
+
+## Wine data set - structure
+
+```{r}
+wine = read.csv("../data/wine.csv")
+str(wine)
+```
+## Bivariate prediction model (R)
+
+Predict price based on one variable **AGST**
+
+AGST = Average Growing Season Temperature
+
+```{r, eval=FALSE}
+wine = read.csv("../data/wine.csv")
+model1 = lm(Price ~ AGST, data=wine)
+summary(model1)
+```
+
+## Understanding the bivariate model (I)
+
+```{r, echo=FALSE}
+wine = read.csv("../data/wine.csv")
+model1 = lm(Price ~ AGST, data=wine)
+plot( wine$AGST , log(wine$Price))
+abline( lm(log(Price) ~ AGST, data=wine), col="red")
+```
+
+
+## Understanding the bivariate model (II)
+```{r, echo=FALSE}
+wine = read.csv("../data/wine.csv")
+model1 = lm(Price ~ AGST, data=wine)
+summary(model1)
+```
+
+
+## Understanding the bivariate model (III)
+R model summary outputs 5 columns 
+
+- Coefficient estimate $\beta$
+
+- standard error: measure
+of how much the coefficient is likely to vary
+from the estimate value.
+
+- t value is the estimate divided by the standard error. Larger absolute value indicate more significance of the variable.
+
+- Probability value: Plausibility of the estimate
+
+- **Significance by indicated by up to 3 stars**
+
+## Bivariate Regression Models
+
+$$ y^i = \beta_0 + \beta_1 x^i + \epsilon^i $$
+
+- $y^i$ dependent variable (price) for the *i*th observation
+
+- $x^i$ independent variable (AGST) for the *i*th observation
+
+- $\epsilon^i$ error term for the *i*th observation
+
+- $\beta_0$ intercept coefficient
+
+- $\beta_1$ regression coefficient for the independent variable
+
+The **best model** makes the **smallest errors** 
+
+## How to select the best model ?
+
+- Based on a measure of **choice**
+- Sum of Squared Errors: 
+      - $$ SSE = {\epsilon^1}^2 + {\epsilon^2}^2 + ... + {\epsilon^n}^2 $$
+      - depends on $n$ number of data points
+      - unit hard to understand
+- Root Mean Squared Error (RMSE)
+      - $$ RMSE = \sqrt{ SSE / n } $$
+      - units of dependent variable
+
+## $R^2$
+
+- Compares best model to a baseline expectation
+- Baseline expectation has no variables
+- Baseline expectation is the average
+- SST (total sum of squares) captures deviation of dependent variable against average $\mu$
+
+$$ R^2 = 1 - (SSE / SST ) $$
+
+## Interpreting $R^2$
+
+$$ 0 \leq SSE \leq SST $$
+
+- $R^2 = 0$: no improvement over baseline
+- $R^2 = 1$: perfect prediction model
+- Unitless and universally applicable
+- Can compare between models
+- Generally cannot compare between problems
+
+## Multivariate Regression Models
+
+$$ y^i = \beta_0 + \beta_1 x_1^i +\beta_2 x_2^i + ... + \beta_k x_k^i + \epsilon^i $$
+
+## Improving Model Quality by Adding Variables (I)
+
+
+```{r, eval=FALSE}
+wine = read.csv("../data/wine.csv")
+model4 = lm(Price ~ AGST + HarvestRain + WinterRain + Age, data=wine)
+summary(model4)
+```
+
+## Improving Model Quality by Adding Variables (II)
+
+
+```{r, echo=FALSE}
+wine = read.csv("../data/wine.csv")
+model4 = lm(Price ~ AGST + HarvestRain + WinterRain + Age, data=wine)
+summary(model4)
+```
+
+
+
+## Improving Model Quality by Adding Variables (III)
+
+Variable | $R^2$ 
+--- | ---
+Average Growth Season Temperature (AGST) | 0.44
+AGST, Harvest Rain | 0.71
+AGST, Harvest Rain, Age | 0.79
+AGST, Harvest Rain, Age, Winter Rain | 0.83
+
+- Adding variables can improve a model
+- Dimishing returns as more variables are added
+
+## Selecting Variables
+
+- Not all available variables should be used
+- Each new variable requires more data
+- Causes overfitting: high R2 on data used to create model,
+but bad performance on unseen data
+
+## Making predictions using the model
+
+- Apply model on unknown data
+- Use equation: Unknown $x_j^i$ values multiplied with $\beta_j$ of the model
+- Available function in R: *predict* 
+    - Parameter 1: model
+    - Parameter 2: new data
+    - Result: Vector of predictions per observation
+
+## Making predictions using the model (in R)
+
+```{r, eval=FALSE}
+wine = read.csv("../data/wine.csv")
+model4 = lm(Price ~ AGST + HarvestRain + WinterRain + Age, data=wine)
+
+wineTest = read.csv("wine_test.csv")
+predictTest = predict(model4, newdata=wineTest)
+
+# Compute R-squared
+SSE = sum((wineTest$Price - predictTest)^2)
+SST = sum((wineTest$Price - mean(wine$Price))^2)
+1 - SSE/SST
+```
+
+```{r, echo=FALSE}
+wine = read.csv("../data/wine.csv")
+model4 = lm(Price ~ AGST + HarvestRain + WinterRain + Age, data=wine)
+
+wineTest = read.csv("../data/wine_test.csv")
+predictTest = predict(model4, newdata=wineTest)
+
+# Compute R-squared
+SSE = sum((wineTest$Price - predictTest)^2)
+SST = sum((wineTest$Price - mean(wine$Price))^2)
+1 - SSE/SST
+```
+
+## Out-of-sample performance
+
+Variable | Training R2 | Test R2
+--- | --- | ---
+Average Growth Season Temperature (AGST) | 0.44 | 0.79
+AGST, Harvest Rain | 0.71 | -0.08
+AGST, Harvest Rain, Age | 0.79 | 0.53
+AGST, Harvest Rain, Age, Winter Rain | 0.83 | 0.79
+
+- Better model $R^2$ does not mean better test $R^2$
+- Out of sample $R^2$ can be negative
+
+##  Real World Results for Bordeaux wines
+
+- Robert Parker
+    - 1986 is very good
+    - **2000 greatest vintage ever produced**
+- Orley Ashenfelter
+    - 1986 is mediocre
+    - 1989 is very good
+    - 1990 better than 1989
+    - **2000 is great**
+    - 2003 is great
+- Market Auctions
+    - 1989 double price of 1986 wines
+    
+## Summary 
+- Linear regression is a fairly simple prediction model
+- Model is a linear equation
+- Computer learns $\beta$ coefficients from data
+- Make prediction by inserting data into such equations
+
+## Logistic Regression
+
+$$ P(Y=1) = 1 / { ( 1 + e^{-(\beta_0 + \beta_1 x_1 + \beta_2 x_2 + ... + \beta_n x_n )} ) } $$
+
+- Assume binomial not Gausian distribution when building model
+- Limit range of predictions to numbers between 0 and 1
+- Binary classification: Use threshold to interpret prediction as YES or NO 
+- Choose threshold based on Receiver Operator Curve (ROC)
